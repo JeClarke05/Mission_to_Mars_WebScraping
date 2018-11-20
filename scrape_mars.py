@@ -55,7 +55,10 @@ def scrape():
     df.columns = ['', 'Values']
     df.set_index('', inplace=True)
 
-    html_table = df.to_html(table_id=None, buf=None, bold_rows=True)
+    html_table = df.to_html(classes = 'table table-striped')
+    # html_table = df.to_html(table_id=None, buf=None, bold_rows=True)
+    # html_table = html_table.replace('\n', '')
+    # html_table
 
     #Mars Hemisphere
     hem_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -79,6 +82,15 @@ def scrape():
         
         browser.back()
         time.sleep(5)
+
+    Cerberus_title = hemisphere_data[0]["title"]
+    Cerberus_img_url = hemisphere_data[0]["img_url"]
+    Schiaparelli_title = hemisphere_data[1]["title"]
+    Schiaparelli_img_url = hemisphere_data[1]["img_url"]
+    Syrtis_title = hemisphere_data[2]["title"]
+    Syrtis_img_url = hemisphere_data[2]["img_url"]
+    Valles_title = hemisphere_data[3]["title"]
+    Valles_img_url = hemisphere_data[3]["img_url"]
     
     #Save as Dictionary 
     mars_dict = {
@@ -87,7 +99,14 @@ def scrape():
         "Featured_Image" : featured_image_url,
         "Mars_Weather" :  mars_weather,
         "Mars_Facts" : html_table,
-        "Mars_Hemispheres" : hemisphere_data
+        "Cerberus_title" : Cerberus_title,
+        "Cerberus_img_url" : Cerberus_img_url,
+        "Schiaparelli_title" : Schiaparelli_title,
+        "Schiaparelli_img_url" : Schiaparelli_img_url,
+        "Syrtis_title" : Syrtis_title,
+        "Syrtis_img_url" : Syrtis_img_url,
+        "Valles_title" : Valles_title,
+        "Valles_img_url" : Valles_img_url
         }
 
     # Close the browser after scraping

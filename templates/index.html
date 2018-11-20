@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container" style="background: black">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    <div class="row" style="color: white">
+      <div class="col-md-4">
+        <h2 class="heading">{{mars_info.News_Title}}</h2>
+        <p>{{mars_info.News_Paragraph}}</p>
+        <br>
+        <div style="background: white">
+          <div style="color: black"><h3>Mars Facts</h3></div>      
+          <div style='color: black'>
+            {{mars_info.Mars_Facts|safe}}
+          </div>
+        </div>
+        <!-- <h3>Mars Facts</h3>
+        {{mars_info.Mars_Facts|safe}} -->
+      </div>
+      <div class="col-md-8">
+        <h2>Featured Image</h2>
+        <img style="width:100%" src="{{mars_info.Featured_Image}}" alt="mars featured image">
+        <hr>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Weather on mars:</h3>
+          </div>
+          <div class="panel-body" style="color: black">
+            {{mars_info.Mars_Weather}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="width:154%">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="{{mars_info.Cerberus_img_url}}" alt="Cerberus">
+                <div class="caption">
+                  <h3>{{mars_info.Cerberus_title}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{mars_info.Schiaparelli_img_url}}" alt="Schiaparelli">
+                    <div class="caption">
+                      <h3>{{mars_info.Schiaparelli_title}}</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="row" style="width:154%">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="{{mars_info.Syrtis_img_url}}" alt="Syrtis">
+                <div class="caption">
+                  <h3>{{mars_info.Syrtis_title}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{mars_info.Valles_img_url}}" alt="Valles">
+                    <div class="caption">
+                      <h3>{{mars_info.Valles_title}}</h3>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>
+
